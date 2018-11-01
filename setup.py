@@ -19,7 +19,9 @@ setup(
             "mopyx_sample = mopyx_sample.mainapp:main"
         ]
     },
-    install_requires=[],
+    install_requires=[
+        "mopyx",
+        "pyside2"],
     packages=packages,
     package_data={
         '': ['*.txt', '*.rst']
