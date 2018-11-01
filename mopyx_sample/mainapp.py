@@ -81,16 +81,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @action
     def move_up_item(self):
-        swap = root_model.items[root_model.selectedItemIndex - 1]
-        root_model.items[root_model.selectedItemIndex - 1] = root_model.items[root_model.selectedItemIndex]
-        root_model.items[root_model.selectedItemIndex] = swap
+        index = root_model.selectedItemIndex
+        items = root_model.items
+
+        items[index], items[index - 1] = items[index - 1], items[index]
+
         root_model.selectedItemIndex -= 1
 
     @action
     def move_down_item(self):
-        swap = root_model.items[root_model.selectedItemIndex + 1]
-        root_model.items[root_model.selectedItemIndex + 1] = root_model.items[root_model.selectedItemIndex]
-        root_model.items[root_model.selectedItemIndex] = swap
+        index = root_model.selectedItemIndex
+        items = root_model.items
+
+        items[index], items[index + 1] = items[index + 1], items[index]
+
         root_model.selectedItemIndex += 1
 
     @action
